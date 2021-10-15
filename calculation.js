@@ -36,7 +36,7 @@ function computeLAN(moonPos) {
     //unit vecotor normal to the plane we're looking for
 
     w[z] = Math.cos(degrees_to_radians(siteDec)) * Math.sin(degrees_to_radians(asumith));
-    w2[z] = w[z];
+    w2[z] = Math.cos(degrees_to_radians(siteDec)) * Math.sin(degrees_to_radians(asumith));
     w[y] = ((-1 * w[z] * moonPosUnit[y] * moonPosUnit[z]) + (moonPosUnit[x] * Math.sqrt(1 - Math.pow(moonPosUnit[z], 2) - Math.pow(w[z], 2)))) / (Math.pow(moonPosUnit[x], 2) + Math.pow(moonPosUnit[y], 2));
     w2[y] = ((-1 * w2[z] * moonPosUnit[y] * moonPosUnit[z]) - (moonPosUnit[x] * Math.sqrt(1 - Math.pow(moonPosUnit[z], 2) - Math.pow(w2[z], 2)))) / (Math.pow(moonPosUnit[x], 2) + Math.pow(moonPosUnit[y], 2));
     w[x] = ((-w[y] * moonPosUnit[y]) - (w[z] * moonPosUnit[z])) / moonPosUnit[x];
