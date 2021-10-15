@@ -14,7 +14,8 @@ const siteDec = 37.9367; //Latitude of launch site. This is the lattitude for wa
 var m1 = [3.323580430902253*Math.pow(10,5),1.422627094469626*Math.pow(10,5),-3.220575107542072*Math.pow(10,4)];
 var m2 = [3.335842684730923*Math.pow(10,5),-1.354346075936884*Math.pow(10,5),-5.834508083459274*Math.pow(10,4)];
 var m3 = [-1.593170894374846*Math.pow(10,5),3.672792218932178*Math.pow(10,5),-3.165504772843079*Math.pow(10,4)];
-var moonPosArr = [m1];
+var m4 = [3,3,0.3];
+var moonPosArr = [m1,m2,m3,m4];
 for(var i = 0; i< moonPosArr.length; i++){
     console.log(computeLAN(moonPosArr[i]));
 }
@@ -27,11 +28,9 @@ function computeLAN(moonPos) {
 
     var moonPosUnit = unitVector(moonPos);
     var w = [-1, -1, -1]; //x,y,z
-    var w2 = w; //the negative of the quadratic formula
+    var w2 = [-1, -1, -1]; //the negative of the quadratic formula
     var rightAscencion = -1; //intermediate in finding time
     var rightAscencion2 = -1; //negative of the quadratic
-    var time = -1;
-    var time2 = -1;
     var LANs = [-1,-1];
 
     //unit vecotor normal to the plane we're looking for
